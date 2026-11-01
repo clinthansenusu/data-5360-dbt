@@ -12,7 +12,7 @@ SELECT
 date_day as date_key,
 date_day as date_id,
 day_of_week as dayofweek,
-month_of_year as month,,
+month_of_year as month,
 quarter_of_year as quarter,
 year_number as year
 from cte_date
