@@ -9,7 +9,7 @@
 SELECT
 c.firstname as customer_first_name,
 c.lastname as customer_last_name,
-d.date_day,
+d.date_key,
 p.policyid,
 a.firstname as agent_first_name,
 a.lastname as agent_last_name,
