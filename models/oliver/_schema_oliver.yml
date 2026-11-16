@@ -4,12 +4,26 @@ version: 2
 models:
   - name: oliver_dim_customer
     description: "Oliver Customer Dimension"
+    columns:
+      - name: cust_key
+        data_tests:
+          - unique
 
   - name: oliver_dim_date
     description: "Oliver Date Dimension"
+    columns:
+      - name: quarter_of_year
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]
 
   - name: oliver_dim_employee
     description: "Oliver Employee Dimension"
+    columns:
+      - name: employee_key
+        data_tests:
+          - not_null
 
   - name: oliver_dim_product
     description: "Oliver Product Dimension"
@@ -19,6 +33,13 @@ models:
 
   - name: fact_sales
     description: "Oliver Sales Fact"
+    columns:
+      - name: cust_key
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('oliver_dim_customer')
+                field: cust_key
 
   - name: stg_employee_certifications
     description: "Staging model containing employee certification records"
